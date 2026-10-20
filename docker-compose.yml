@@ -1,0 +1,25 @@
+services:
+  web:
+    build: .
+    image: tika-share
+    container_name: tika-share
+    ports:
+      - "${PORT:-8000}:8000"
+    environment:
+      # Values come from a .env file next to this file (see .env.example),
+      # or fall back to these development defaults.
+      DJANGO_DEBUG: ${DJANGO_DEBUG:-1}
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:-dev-insecure-secret-key-change-me}
+      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS:-*}
+      DJANGO_CSRF_TRUSTED_ORIGINS: ${DJANGO_CSRF_TRUSTED_ORIGINS:-}
+      DJANGO_BEHIND_PROXY: ${DJANGO_BEHIND_PROXY:-0}
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin12345}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@example.com}
+    volumes:
+      - tika_data:/data
+    restart: unless-stopped
+
+volumes:
+  tika_data:

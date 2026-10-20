@@ -1,0 +1,42 @@
+{% extends "cards/base.html" %}
+
+{% block title %}Create your own · Dashain Tika & Jamara{% endblock %}
+
+{% block content %}
+<section class="panel narrow">
+  <h1>Create your own</h1>
+  <p class="lead">Add your photo and your QR screenshot. You'll get a link to send to your friends.</p>
+
+  <form method="post" enctype="multipart/form-data" class="form">
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+      <div class="error">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <div class="field">
+      <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+      {{ form.name }}
+      {% for error in form.name.errors %}<p class="error">{{ error }}</p>{% endfor %}
+    </div>
+
+    <div class="field">
+      <label for="{{ form.photo.id_for_label }}">{{ form.photo.label }}</label>
+      <p class="help">A clear, front-facing photo with your forehead visible works best.</p>
+      {{ form.photo }}
+      {% for error in form.photo.errors %}<p class="error">{{ error }}</p>{% endfor %}
+      <img id="photo-preview" class="preview preview-photo" alt="Photo preview" hidden>
+    </div>
+
+    <div class="field">
+      <label for="{{ form.qr_image.id_for_label }}">{{ form.qr_image.label }}</label>
+      <p class="help">A screenshot of your eSewa, Fonepay or bank QR. Your friend sees it after adding the tika.</p>
+      {{ form.qr_image }}
+      {% for error in form.qr_image.errors %}<p class="error">{{ error }}</p>{% endfor %}
+      <img id="qr-preview" class="preview preview-qr" alt="QR preview" hidden>
+    </div>
+
+    <button type="submit" class="btn btn-block">Create my link</button>
+    <p class="fine">Images up to 8&nbsp;MB. Location data is removed from your photo. Anyone with your link can see your photo and QR.</p>
+  </form>
+</section>
+{% endblock %}

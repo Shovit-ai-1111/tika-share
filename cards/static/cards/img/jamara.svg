@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 134">
+  <defs>
+    <linearGradient id="b0" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#b9c24a"/><stop offset="1" stop-color="#eee37a"/></linearGradient>
+    <linearGradient id="b1" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#9fb83c"/><stop offset="1" stop-color="#e6e070"/></linearGradient>
+    <linearGradient id="b2" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#c6c94f"/><stop offset="1" stop-color="#f3e988"/></linearGradient>
+  </defs>
+  <g transform="rotate(-50 100 126)"><path d="M100 126C87.2 98.56 92.96 67.2 100 47.60000000000001C107.04 67.2 112.8 98.56 100 126Z" fill="url(#b0)"/><path d="M100 118L100 53.872" stroke="#fff" stroke-opacity=".25" stroke-width="1.2" stroke-linecap="round"/></g>
+  <g transform="rotate(-37 100 126)"><path d="M100 126C86.64 93.072 92.652 55.44 100 31.92C107.348 55.44 113.36 93.072 100 126Z" fill="url(#b1)"/><path d="M100 118L100 39.4464" stroke="#fff" stroke-opacity=".25" stroke-width="1.2" stroke-linecap="round"/></g>
+  <g transform="rotate(-24 100 126)"><path d="M100 126C86.2 88.76 92.41 46.2 100 19.60000000000001C107.59 46.2 113.8 88.76 100 126Z" fill="url(#b2)"/><path d="M100 118L100 28.11200000000001" stroke="#fff" stroke-opacity=".25" stroke-width="1.2" stroke-linecap="round"/></g>
+  <g transform="rotate(-11 100 126)"><path d="M100 126C86.0 86.80000000000001 92.3 42.0 100 14.0C107.7 42.0 114.0 86.80000000000001 100 126Z" fill="url(#b0)"/><path d="M100 118L100 22.959999999999994" stroke="#fff" stroke-opacity=".25" stroke-width="1.2" stroke-linecap="round"/></g>
+  <g transform="rotate(2 100 126)"><path d="M100 126C86.0 86.80000000000001 92.3 42.0 100 14.0C107.7 42.0 114.0 86.80000000000001 100 126Z" fill="url(#b1)"/><path d="M100 118L100 22.959999999999994" stroke="#fff" stroke-opacity=".25" stroke-width="1.2" stroke-linecap="round"/></g>
+  <g transform="rotate(14 100 126)"><path d="M100 126C86.12 87.976 92.366 44.519999999999996 100 17.36C107.634 44.519999999999996 113.88 87.976 100 126Z" fill="url(#b2)"/><path d="M100 118L100 26.051199999999994" stroke="#fff" stroke-opacity=".25" stroke-width="1.2" stroke-linecap="round"/></g>
+  <g transform="rotate(27 100 126)"><path d="M100 126C86.48 91.504 92.564 52.08 100 27.439999999999998C107.436 52.08 113.52 91.504 100 126Z" fill="url(#b0)"/><path d="M100 118L100 35.324799999999996" stroke="#fff" stroke-opacity=".25" stroke-width="1.2" stroke-linecap="round"/></g>
+  <g transform="rotate(40 100 126)"><path d="M100 126C86.88 95.424 92.78399999999999 60.480000000000004 100 38.64C107.21600000000001 60.480000000000004 113.12 95.424 100 126Z" fill="url(#b1)"/><path d="M100 118L100 45.6288" stroke="#fff" stroke-opacity=".25" stroke-width="1.2" stroke-linecap="round"/></g>
+  <g transform="rotate(52 100 126)"><path d="M100 126C87.36 100.128 93.048 70.56 100 52.08C106.952 70.56 112.64 100.128 100 126Z" fill="url(#b2)"/><path d="M100 118L100 57.9936" stroke="#fff" stroke-opacity=".25" stroke-width="1.2" stroke-linecap="round"/></g>
+  <rect x="84" y="104" width="32" height="10" rx="5" fill="#c0392b"/>
+  <rect x="84" y="104" width="32" height="4" rx="2" fill="#fff" opacity=".18"/>
+  <path d="M90 114L87 130M100 114L100 132M110 114L113 130" stroke="#f3ead2" stroke-width="2.2" stroke-linecap="round"/>
+</svg>

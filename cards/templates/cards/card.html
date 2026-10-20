@@ -1,0 +1,69 @@
+{% extends "cards/base.html" %}
+{% load static %}
+
+{% block title %}Put tika &amp; jamara on {{ card.name }} · Dashain{% endblock %}
+
+{% block meta %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ card.name }} would love your Dashain tika &amp; jamara 🙏">
+  <meta property="og:description" content="Drag the tika and jamara onto the face, then press Done.">
+  <meta property="og:url" content="{{ page_url }}">
+  <meta property="og:image" content="{{ og_image }}">
+  <meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block content %}
+<section class="stage">
+  <div class="stage-face">
+    <h1><span class="name">{{ card.name }}</span> would love your tika &amp; jamara</h1>
+    <p class="lead">Drag the <strong>tika</strong> onto the forehead and the <strong>jamara</strong> onto the hair, then press <strong>Done</strong>.</p>
+
+    <div class="face" id="face"
+         data-tika-src="{% static 'cards/img/tika.svg' %}"
+         data-jamara-src="{% static 'cards/img/jamara.svg' %}">
+      <img class="face-img" src="{{ card.photo.url }}" alt="Photo of {{ card.name }}" draggable="false">
+    </div>
+  </div>
+
+  <aside class="tray" aria-label="Tika and jamara">
+    <div class="tray-items">
+      <button type="button" class="tray-item" data-tray="tika" aria-label="Tika: drag onto the face, or press Enter to place it">
+        <img src="{% static 'cards/img/tika.svg' %}" alt="" draggable="false">
+        <span>Tika</span>
+      </button>
+      <button type="button" class="tray-item" data-tray="jamara" aria-label="Jamara: drag onto the face, or press Enter to place it">
+        <img src="{% static 'cards/img/jamara.svg' %}" alt="" draggable="false">
+        <span>Jamara</span>
+      </button>
+    </div>
+
+    <div class="tray-tools">
+      <span class="tools-label">Size</span>
+      <button type="button" class="btn btn-small btn-ghost" id="size-down" aria-label="Make smaller" disabled>−</button>
+      <button type="button" class="btn btn-small btn-ghost" id="size-up" aria-label="Make bigger" disabled>+</button>
+      <button type="button" class="btn btn-small btn-ghost" id="start-over" disabled>Start over</button>
+    </div>
+
+    <p class="hint" id="hint" aria-live="polite">Drag them onto the face, or just tap them.</p>
+
+    <button type="button" class="btn btn-block btn-done" id="done-btn" disabled>Done ✓</button>
+  </aside>
+</section>
+
+<dialog id="qr-dialog" class="dialog" aria-labelledby="qr-title">
+  <div class="dialog-body">
+    <p class="eyebrow">Shubha Dashain! 🙏</p>
+    <h2 id="qr-title">Tika &amp; jamara delivered</h2>
+    <p>Thank you for blessing {{ card.name }}. Scan this QR to send your dakshina.</p>
+    <img class="qr" src="{{ card.qr_image.url }}" alt="QR code for {{ card.name }}">
+    <p class="fine">On a phone? Save the QR, then use “scan from gallery” in your payment app.</p>
+    <div class="dialog-actions">
+      <a class="btn" href="{{ card.qr_image.url }}" download="{{ card.name|slugify }}-qr.png">Save QR</a>
+      <a class="btn btn-ghost" href="{% url 'create' %}">Create your own</a>
+      <form method="dialog"><button class="btn btn-ghost">Close</button></form>
+    </div>
+  </div>
+</dialog>
+{% endblock %}
+
+{% block scripts %}<script src="{% static 'cards/js/tika.js' %}" defer></script>{% endblock %}

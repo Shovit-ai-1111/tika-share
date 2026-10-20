@@ -1,0 +1,11 @@
+{% extends "cards/base.html" %}
+
+{% block title %}Not found · Dashain Tika & Jamara{% endblock %}
+
+{% block content %}
+<section class="panel narrow center">
+  <h1>We couldn't find that page</h1>
+  <p class="lead">The link may be wrong, or the card was deleted.</p>
+  <a class="btn" href="{% url 'home' %}">Go home</a>
+</section>
+{% endblock %}

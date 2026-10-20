@@ -1,0 +1,38 @@
+{% extends "cards/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-art" aria-hidden="true">
+    <img src="{% static 'cards/img/jamara.svg' %}" alt="" class="hero-jamara">
+    <img src="{% static 'cards/img/tika.svg' %}" alt="" class="hero-tika">
+  </div>
+  <h1>Get your Dashain tika &amp; jamara,<br>from anywhere.</h1>
+  <p class="lead">Share a link to your face. Your friend puts the tika and jamara on it, presses <strong>Done</strong>, and your QR pops up.</p>
+  <a class="btn" href="{% url 'create' %}">Create your own</a>
+</section>
+
+<section class="steps" aria-label="How it works">
+  <ol>
+    <li><span class="step-no">1</span><div><strong>Upload</strong><br>Your photo and your QR screenshot.</div></li>
+    <li><span class="step-no">2</span><div><strong>Share</strong><br>Send the link on WhatsApp, Viber or Messenger.</div></li>
+    <li><span class="step-no">3</span><div><strong>Tika time</strong><br>Your friend drags the tika &amp; jamara on, and your QR appears.</div></li>
+  </ol>
+</section>
+
+{% if featured %}
+<section class="featured">
+  <h2>Try one</h2>
+  <ul class="grid">
+    {% for card in featured %}
+      <li>
+        <a class="tile" href="{{ card.get_absolute_url }}">
+          <img src="{{ card.photo.url }}" alt="{{ card.name }}" loading="lazy">
+          <span>{{ card.name }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% endblock %}

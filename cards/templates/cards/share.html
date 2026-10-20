@@ -1,0 +1,35 @@
+{% extends "cards/base.html" %}
+{% load static %}
+
+{% block title %}Share your link · Dashain Tika & Jamara{% endblock %}
+
+{% block content %}
+<section class="panel narrow share">
+  <p class="eyebrow">Your link is ready 🎉</p>
+  <h1>Send this to your friends</h1>
+
+  <img class="share-photo" src="{{ card.photo.url }}" alt="Photo of {{ card.name }}">
+
+  <label class="sr-only" for="share-link">Your share link</label>
+  <div class="copy-row">
+    <input id="share-link" type="text" readonly value="{{ link }}">
+    <button type="button" class="btn" data-copy-from="share-link">Copy</button>
+  </div>
+  <p class="copied" id="copied" role="status" hidden>Link copied!</p>
+
+  <div class="share-buttons">
+    <button type="button" class="btn btn-ghost" data-native-share data-title="Dashain Tika & Jamara" data-text="{{ share_text }}" data-url="{{ link }}" hidden>Share…</button>
+    <a class="btn btn-ghost" href="{{ whatsapp_url }}" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn btn-ghost" href="{{ viber_url }}">Viber</a>
+    <a class="btn btn-ghost" href="{{ facebook_url }}" target="_blank" rel="noopener">Facebook</a>
+  </div>
+
+  <div class="share-actions">
+    <a class="btn btn-small" href="{% url 'card' card.slug %}">Preview what your friend sees</a>
+    <form method="post" action="{% url 'delete' card.slug %}" data-confirm="Delete this card? The link will stop working.">
+      {% csrf_token %}
+      <button type="submit" class="link-danger">Delete card</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

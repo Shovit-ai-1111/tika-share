@@ -1,0 +1,43 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Dashain Tika & Jamara{% endblock %}</title>
+  <meta name="theme-color" content="#8e1b2f">
+  {% block meta %}{% endblock %}
+  <link rel="icon" href="{% static 'cards/img/favicon.svg' %}" type="image/svg+xml">
+  <link rel="stylesheet" href="{% static 'cards/css/style.css' %}">
+</head>
+<body>
+  <div class="garland" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="{% url 'home' %}">
+      <img src="{% static 'cards/img/tika.svg' %}" alt="" class="brand-mark" width="18" height="23">
+      <span>Tika &amp; Jamara</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      {% if request.session.my_cards %}<a class="nav-link" href="{% url 'my_cards' %}">My cards</a>{% endif %}
+      <a class="btn btn-small" href="{% url 'create' %}">Create your own</a>
+    </nav>
+  </header>
+
+  {% if messages %}
+    <ul class="messages" role="status">
+      {% for message in messages %}<li class="message {{ message.tags }}">{{ message }}</li>{% endfor %}
+    </ul>
+  {% endif %}
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <p>Happy Bijaya Dashami! शुभ दशैं 🌼</p>
+  </footer>
+
+  <script src="{% static 'cards/js/app.js' %}" defer></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

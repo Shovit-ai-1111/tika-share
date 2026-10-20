@@ -1,0 +1,28 @@
+{% extends "cards/base.html" %}
+
+{% block title %}My cards · Dashain Tika & Jamara{% endblock %}
+
+{% block content %}
+<section class="panel">
+  <h1>My cards</h1>
+  {% if cards %}
+    <ul class="grid">
+      {% for card in cards %}
+        <li class="tile-wrap">
+          <a class="tile" href="{% url 'share' card.slug %}">
+            <img src="{{ card.photo.url }}" alt="{{ card.name }}" loading="lazy">
+            <span>{{ card.name }}</span>
+          </a>
+          <div class="tile-actions">
+            <a href="{% url 'share' card.slug %}">Share link</a>
+            <a href="{% url 'card' card.slug %}">Open</a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="lead">You haven't created a card in this browser yet.</p>
+  {% endif %}
+  <p><a class="btn" href="{% url 'create' %}">Create your own</a></p>
+</section>
+{% endblock %}
